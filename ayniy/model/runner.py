@@ -322,13 +322,14 @@ class Runner:
                 self.cv.split(self.X_train, self.X_train[self.cols_definition["cv_y"]])
             )[i_fold]
         else:
-            return list(self.cv.split(self.X_train, self.y_train))[i_fold]
+            groups = pd.read_csv('../input/atmacup08-dataset/train.csv', usecols=['Publisher'])['Publisher']
+            return list(self.cv.split(self.X_train, self.y_train, groups=groups))[i_fold]
 
     def submission(self) -> None:
         pred = Data.load(f"../output/pred/{self.run_name}-test.pkl")
         sub = pd.read_csv(self.sample_submission)
         if self.advanced and "predict_exp" in self.advanced:
-            sub[self.cols_definition["target_col"]] = np.exp(pred)
+            sub[self.cols_definition["target_col"]] = np.expm1(pred)
         else:
             sub[self.cols_definition["target_col"]] = pred
         sub.to_csv(f"../output/submissions/submission_{self.run_name}.csv", index=False)
