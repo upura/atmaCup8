@@ -1,0 +1,29 @@
+description: CatBoostRegressor
+exp_name: 'atmacup8'
+run_name: 'run004'
+fe_name: 'fe000_top300'
+data:
+  sample_submission: '../input/atmacup08-dataset/atmaCup8_sample-submission.csv'
+cols_definition:
+  categorical_col: [
+    'Platform',
+    'Genre',
+  ]
+  target_col: 'Global_Sales'
+model_name: 'ModelCatRegressor'
+params: {
+  'depth': 5,
+  'learning_rate': 0.1,
+  'iterations': 10000,
+  'loss_function': 'RMSE',
+  'eval_metric': 'RMSE',
+  'random_seed': 777,
+  'allow_writing_files': False,
+  'task_type': "CPU",
+  'early_stopping_rounds': 100
+}
+evaluation_metric: 'rmse'
+advanced:
+  predict_exp:
+  PseudoRunner:
+    y_test_pred: '../output/pred/run001-test.pkl'
