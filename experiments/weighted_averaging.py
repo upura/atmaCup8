@@ -45,20 +45,12 @@ def make_submission(pred, run_name: str):
     sub.to_csv(f'../output/submissions/submission_{run_name}.csv', index=False)
 
 
-# run_ids = [
-#     'run000',
-#     'run001',
-#     'run002',
-#     'run003',
-#     'run004'
-# ]
-# run_name = 'weight000'
-
 run_ids = [
-    'run005',
-    'run006'
+    'run008',
+    'run009',
+    'run010'
 ]
-run_name = 'weight001'
+run_name = 'weight002'
 
 if __name__ == '__main__':
     y_train = Data.load('../input/pickle/y_train_fe000.pkl')

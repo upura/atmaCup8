@@ -15,8 +15,8 @@ if __name__ == "__main__":
     parser.add_argument('--n')
     args = parser.parse_args()
 
-    fe_id = 'fe000'
-    run_id = 'run000'
+    fe_id = 'fe001'
+    run_id = 'run008'
     N_FEATURES = int(args.n)
     fe_name = f'{fe_id}_top{N_FEATURES}'
 

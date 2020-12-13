@@ -1,0 +1,20 @@
+description: RIDGE
+exp_name: 'atmacup8'
+run_name: 'run011'
+fe_name: 'stack001'
+data:
+  sample_submission: '../input/atmacup08-dataset/atmaCup8_sample-submission.csv'
+cols_definition:
+  categorical_col: [
+  ]
+  target_col: 'Global_Sales'
+model_name: 'ModelRIDGE'
+params: {
+  'alpha': 10,
+  'random_state': 0
+}
+evaluation_metric: 'rmse'
+advanced:
+  predict_exp:
+  PseudoRunner:
+    y_test_pred: '../output/pred/run010-test.pkl'
