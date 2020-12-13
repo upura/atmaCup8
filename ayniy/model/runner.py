@@ -322,13 +322,14 @@ class Runner:
                 self.cv.split(self.X_train, self.X_train[self.cols_definition["cv_y"]])
             )[i_fold]
         else:
-            num_bins = np.int(1 + np.log2(len(self.y_train)))
-            bins = pd.qcut(
-                self.y_train,
-                num_bins,
-                labels=False
-            )
-            return list(self.cv.split(self.X_train, bins))[i_fold]
+            groups = pd.read_csv('../input/atmacup08-dataset/train.csv')['Publisher']
+            # num_bins = np.int(1 + np.log2(len(self.y_train)))
+            # bins = pd.qcut(
+            #     self.y_train,
+            #     num_bins,
+            #     labels=False
+            # )
+            return list(self.cv.split(self.X_train, self.y_train, groups=groups))[i_fold]
 
     def submission(self) -> None:
         pred = Data.load(f"../output/pred/{self.run_name}-test.pkl")
