@@ -6,6 +6,7 @@ Late submission named `run008` scored public: 0.5226 and private: 0.5256.
 
 - LightGBM
 - StratifiedKFold(10) by binned target
+- This implementation uses a supporting tool for machine learning competitions named [Ayniy](https://github.com/upura/ayniy).
 
 ## Environment
 
