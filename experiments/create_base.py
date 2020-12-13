@@ -15,8 +15,9 @@ if __name__ == '__main__':
             "../input/feather/features_svd.ftr",
             "../input/feather/aggregation.ftr",
             "../input/feather/texts.ftr",
-            "../input/feather/target_encoding.ftr",
+            # "../input/feather/target_encoding.ftr",
             "../input/feather/rank.ftr",
+            "../input/feather/diff.ftr",
         ],
         target_col=target_col,
     )
@@ -28,7 +29,7 @@ if __name__ == '__main__':
     print(X_train.shape)
     print(X_train.columns)
 
-    fe_name = 'fe001'
+    fe_name = 'fe003'
     Data.dump(X_train, f'../input/pickle/X_train_{fe_name}.pkl')
     Data.dump(y_train, f'../input/pickle/y_train_{fe_name}.pkl')
     Data.dump(X_test, f'../input/pickle/X_test_{fe_name}.pkl')
