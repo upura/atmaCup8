@@ -12,7 +12,7 @@ Late submission named `run008` scored public: 0.5226 and private: 0.5256.
 
 ```sh
 docker-compose -d --build
-docker exec -it ayniy-test bash
+docker exec -it atmacup8 bash
 ```
 
 ## Run
